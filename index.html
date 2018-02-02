@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <title></title>
+</head>
+<style>
+    .row{
+        margin: 35px;
+    }
+    .sub{
+        color: #6c757d;
+        margin-top: 5px;
+
+    }
+</style>
+<script type="text/javascript">
+
+    function validateForm(){
+        var x=document.forms["myForm"]["fname"].value;
+        if (x==null || x==""){
+            //alert("姓必须填写");
+            document.getElementById("sub").innerHTML="姓名不能为空";
+            document.getElementById("sub").style="color:red";
+            document.getElementById("firstname").style="border-color:red"
+            return false;
+        }else if (x.length>16|| x.length<4){
+            //alert("姓必须填写");
+            document.getElementById("sub").innerHTML="姓名格式不正确";
+            document.getElementById("sub").style="color:red";
+            document.getElementById("firstname").style="border-color:red"
+            return false;
+        }else{
+            document.getElementById("sub").innerHTML="姓名格式正确";
+            document.getElementById("sub").style="color:green";
+            document.getElementById("firstname").style="border-color:green"
+            return false;
+        }
+
+    }
+</script>
+<body>
+
+
+    <form class="form-horizontal" role="form" name="myForm" onsubmit="return validateForm()" method="post">
+        <div class="row">
+
+            <label for="firstname" class="col-sm-1 control-label">名字</label>
+            <div class="col-sm-3">
+                 <input type="text" class="form-control" id="firstname" placeholder="请输入名字" name="fname">
+                 <div class="sub" id="sub">必填，长度为4~16个字符</div>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-primary" >验证</button>
+            </div>
+        </div>
+
+
+    </form>
+
+
+
+</body>
+</html>
